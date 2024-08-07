@@ -1,0 +1,12 @@
+/venv/
+/.env/
+/.idea/
+/accounts/__pycache__/
+/accounts/migrations/__pycache__/
+/log/migrations/__pycache__/
+/log/__pycache__/
+/orders/migrations/__pycache__/
+/orders/__pycache__/
+/utils/__pycache__/
+/OrderService/__pycache__/
+/db.sqlite3/
