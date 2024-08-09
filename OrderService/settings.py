@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'accounts.apps.AccountsConfig',
     'log',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -133,10 +134,19 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    'SIGNING_KEY': '6fd223206c8951bc774fb5791aef3d24cbbb1bf415ae1b4e35140c148e5219a6'
+    'SIGNING_KEY': os.getenv('JWT_KEY'),
+}
+
+# Spectacular settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'OrderService',
+    'DESCRIPTION': 'A simple order WebService API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
